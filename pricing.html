@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing | Crazeon Digi Solution</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.2/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.pricing-section { 
+    display: none !important; 
+    opacity: 0; 
+    transition: all 0.4s ease !important; 
+}
+.pricing-section.active { 
+    display: block !important; 
+    opacity: 1 !important; 
+}
+
+.tab-btn { 
+    cursor: pointer !important; 
+    transition: all 0.3s ease !important; 
+    border-radius: 20px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    width: 100% !important;
+}
+.active-pricing-tab { 
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8) !important;
+    color: white !important;
+    transform: scale(1.05) !important;
+    box-shadow: 0 8px 25px rgba(59,130,246,0.4) !important;
+}
+
+/* 🔥 GROWTH FULL GREEN BG */
+.growth-card {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+    border: 4px solid #10b981 !important;
+    box-shadow: 0 25px 60px rgba(16,185,129,0.5) !important;
+    position: relative;
+    z-index: 10;
+    color: white !important;
+}
+
+.growth-card .recommended-badge {
+    background: #dc2626 !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(220,38,38,0.6) !important;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+/* 🔥 PRO FULL YELLOW BG */
+.pro-card {
+    background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+    border: 4px solid #f59e0b !important;
+    box-shadow: 0 25px 60px rgba(245,158,11,0.5) !important;
+    position: relative;
+    z-index: 10;
+    color: white !important;
+}
+
+.pro-card .recommended-badge {
+    background: #dc2626 !important;
+    color: white !important;
+    box-shadow: 0 8px 25px rgba(220,38,38,0.6) !important;
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+}
+
+.tick-list li { 
+    background: rgba(255,255,255,0.95) !important; 
+    border: 2px solid rgba(255,255,255,0.5) !important;
+    padding: 15px 20px !important;
+    margin-bottom: 12px !important;
+    border-radius: 16px !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+    color: #1e2937 !important;
+}
+.tick-list li i { color: #059669 !important; font-size: 1.3rem !important; }
+
+.pricing-card {
+    border-radius: 24px !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+    transition: all 0.4s ease !important;
+    overflow: hidden;
+}
+
+/* MOBILE PERFECT RESPONSIVE */
+@media (max-width: 991px) {
+    .pricing-tabs .row { flex-direction: column !important; }
+    .tab-btn { margin-bottom: 10px !important; padding: 20px !important; }
+}
+
+@media (max-width: 768px) {
+    .col-lg-4 { margin-bottom: 2.5rem !important; }
+    .growth-card, .pro-card {
+        margin-top: 25px !important;
+        transform: scale(1.03) !important;
+    }
+    .pricing-card { margin: 0 10px !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top shadow-sm" style="background: rgba(255,255,255,0.95); backdrop-filter: blur(10px); z-index: 1000;">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary fs-3" href="index.html"><strong>CRAZEON</strong></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+        <li class="nav-item"><a class="nav-link active fw-bold" href="pricing.html">Pricing</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<section class="py-5 text-center text-white" style="background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 100%); margin-top: 80px;">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-4">Transparent Pricing</h1>
+    <p class="lead fs-4 mb-0">Fixed rates • No hidden charges • Cancel anytime</p>
+  </div>
+</section>
+
+<!-- PRICING TABS -->
+<section class="py-5 bg-light">
+  <div class="container">
+    
+    <!-- TABS - MOBILE PERFECT -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-lg-10 col-12">
+        <div class="pricing-tabs bg-white shadow-lg p-4 p-lg-5 rounded-4">
+          <div class="row g-3 g-md-2 text-center">
+            <div class="col-12 col-md-4">
+              <button class="btn btn-outline-primary w-100 py-4 px-4 fs-5 fw-bold active-pricing-tab tab-btn h-100" data-tab="ads" onclick="showPricing('ads')">
+                <i class="fas fa-bullhorn me-2"></i>Meta Ads
+              </button>
+            </div>
+            <div class="col-12 col-md-4">
+              <button class="btn btn-outline-success w-100 py-4 px-4 fs-5 fw-bold tab-btn h-100" data-tab="websites" onclick="showPricing('websites')">
+                <i class="fas fa-laptop-code me-2"></i>Websites
+              </button>
+            </div>
+            <div class="col-12 col-md-4">
+              <button class="btn btn-outline-warning w-100 py-4 px-4 fs-5 fw-bold tab-btn h-100 text-dark" data-tab="combo" onclick="showPricing('combo')">
+                <i class="fas fa-gem me-2"></i>Combo
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- META ADS -->
+    <div id="ads-pricing" class="pricing-section active">
+      <div class="row g-4 g-lg-5 justify-content-center">
+        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+          <div class="pricing-card bg-white shadow-lg rounded-4 p-5 text-center h-100 border border-primary border-3">
+            <div class="plan-icon mb-4">
+              <i class="fas fa-bullhorn fa-3x text-primary"></i>
+            </div>
+            <h3 class="h4 fw-bold mb-3 text-primary">Starter Ads</h3>
+            <div class="h1 fw-bold text-primary mb-2">₹3,999</div>
+            <span class="fs-5 text-muted fw-medium">/month</span>
+            <ul class="list-unstyled mb-4 tick-list">
+              <li><i class="fas fa-check me-2"></i><strong>2 Campaigns</strong> Setup & Launch</li>
+              <li><i class="fas fa-check me-2"></i>Basic Audience Targeting</li>
+              <li><i class="fas fa-check me-2"></i>Daily Performance Check</li>
+              <li><i class="fas fa-check me-2"></i>Weekly WhatsApp Reports</li>
+            </ul>
+            <a href="https://wa.me/918467004047?text=Meta%20Ads%20Starter%20₹3999" class="btn btn-primary btn-lg w-100 fw-bold py-3" target="_blank">
+              Start Campaign <i class="fas fa-whatsapp ms-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- GROWTH FULL GREEN -->
+        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+          <div class="pricing-card growth-card p-5 text-center h-100 position-relative pt-5">
+            <div class="recommended-badge px-4 py-2 rounded-pill fw-bold fs-6 shadow-lg">
+              🔥 MOST POPULAR
+            </div>
+            <div class="plan-icon mb-4">
+              <i class="fas fa-chart-line fa-3x opacity-90"></i>
+            </div>
+            <h3 class="h4 fw-bold mb-3">Growth Ads</h3>
+            <div class="h1 fw-bold mb-2">₹5,999</div>
+            <span class="fs-5 fw-medium">/month</span>
+            <ul class="list-unstyled mb-4 tick-list">
+              <li><i class="fas fa-check me-2"></i><strong>4 Campaigns</strong> Running</li>
+              <li><i class="fas fa-check me-2"></i>A/B Testing Included</li>
+              <li><i class="fas fa-check me-2"></i>Daily Ad Optimization</li>
+              <li><i class="fas fa-check me-2"></i>Priority WhatsApp Support</li>
+            </ul>
+            <a href="https://wa.me/918467004047?text=Meta%20Ads%20Growth%20₹5999" class="btn btn-light btn-lg w-100 fw-bold py-3" target="_blank">
+              Get Growth Plan <i class="fas fa-whatsapp ms-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+          <div class="pricing-card bg-white shadow-lg rounded-4 p-5 text-center h-100 border border-warning border-3">
+            <div class="plan-icon mb-4">
+              <i class="fas fa-rocket fa-3x text-warning"></i>
+            </div>
+            <h3 class="h4 fw-bold mb-3 text-warning">Enterprise</h3>
+            <div class="h1 fw-bold text-warning mb-2">₹9,999</div>
+            <span class="fs-5 text-muted fw-medium">/month</span>
+            <ul class="list-unstyled mb-4 tick-list">
+              <li><i class="fas fa-check me-2"></i><strong>7 Campaigns</strong> Active</li>
+              <li><i class="fas fa-check me-2"></i>24/7 Performance Monitoring</li>
+              <li><i class="fas fa-check me-2"></i>Dedicated Account Manager</li>
+              <li><i class="fas fa-check me-2"></i>Weekly Strategy Video Calls</li>
+            </ul>
+            <a href="https://wa.me/918467004047?text=Meta%20Ads%20Enterprise%20₹9999" class="btn btn-warning btn-lg w-100 text-dark fw-bold py-3" target="_blank">
+              Get Enterprise Plan <i class="fas fa-whatsapp ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- WEBSITES -->
+    <div id="websites-pricing" class="pricing-section">
+      <div class="row g-4 g-lg-5 justify-content-center">
+        <div class="col-xl-5 col-lg-6 col-md-6 col-12">
+          <div class="pricing-card bg-white shadow-lg rounded-4 p-5 text-center h-100 border border-primary border-3">
+            <div class="plan-icon mb-4">
+              <i class="fas fa-laptop fa-3x text-primary"></i>
+            </div>
+            <h3 class="h4 fw-bold mb-3 text-primary">Basic Website</h3>
+            <div class="h1 fw-bold text-primary mb-2">₹12,999</div>
+            <span class="fs-5 text-muted fw-medium">one-time</span>
+            <ul class="list-unstyled mb-4 tick-list">
+              <li><i class="fas fa-check me-2"></i>5 Professional Pages</li>
+              <li><i class="fas fa-check me-2"></i>Fully Mobile Responsive</li>
+              <li><i class="fas fa-check me-2"></i>Hostinger Hosting 1 Year</li>
+              <li><i class="fas fa-check me-2"></i>Basic SEO Optimization</li>
+            </ul>
+            <a href="https://wa.me/918467004047?text=Basic%20Website%20₹12999" class="btn btn-primary btn-lg w-100 fw-bold py-3" target="_blank">
+              Order Website <i class="fas fa-whatsapp ms-2"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- PRO FULL YELLOW -->
+        <div class="col-xl-5 col-lg-6 col-md-6 col-12">
+          <div class="pricing-card pro-card p-5 text-center h-100 position-relative pt-5">
+            <div class="recommended-badge px-4 py-2 rounded-pill fw-bold fs-6 shadow-lg">
+              ⭐ BEST VALUE
+            </div>
+            <div class="plan-icon mb-4">
+              <i class="fas fa-desktop fa-3x opacity-90"></i>
+            </div>
+            <h3 class="h4 fw-bold mb-3">Pro Website</h3>
+            <div class="h1 fw-bold mb-2">₹19,999</div>
+            <span class="fs-5 fw-medium">one-time</span>
+            <ul class="list-unstyled mb-4 tick-list">
+              <li><i class="fas fa-check me-2"></i>10+ Professional Pages</li>
+              <li><i class="fas fa-check me-2"></i>E-commerce Ready Setup</li>
+              <li><i class="fas fa-check me-2"></i>Advanced SEO Package</li>
+              <li><i class="fas fa-check me-2"></i>Custom Features Added</li>
+            </ul>
+            <a href="https://wa.me/918467004047?text=Pro%20Website%20₹19999" class="btn btn-light btn-lg w-100 fw-bold py-3" target="_blank">
+              Get Pro Website <i class="fas fa-whatsapp ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMBO -->
+    <div id="combo-pricing" class="pricing-section">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-md-10 col-12">
+          <div class="pricing-card bg-gradient text-white shadow-lg rounded-4 p-5 text-center h-100 border border-warning border-4 position-relative" style="background: linear-gradient(135deg, #f59e0b, #d97706) !important;">
+            <div class="recommended-badge bg-danger text-white px-5 py-3 rounded-pill position-absolute top-0 start-50 translate-middle-x mt-n3 fw-bold fs-5 shadow-lg">
+              💎 ULTIMATE COMBO
+            </div>
+            <div class="plan-icon mb-5">
+              <i class="fas fa-crown fa-4x opacity-90"></i>
+            </div>
+            <h2 class="h3 fw-bold mb-4">Website + Meta Ads</h2>
+            <div class="h1 fw-bold display-4 mb-3">₹29,999</div>
+            <span class="fs-4 fw-medium">first 3 months (Save ₹8,000!)</span>
+            <a href="https://wa.me/918467004047?text=Ultimate%20Combo%20₹29999" class="btn btn-light btn-lg w-100 px-5 py-4 fs-5 fw-bold mt-4" target="_blank" style="border-radius: 50px;">
+              Claim ₹8K Discount <i class="fas fa-whatsapp ms-2"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SCRIPTS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function showPricing(tabName) {
+    // Hide all sections
+    document.querySelectorAll('.pricing-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Remove active class from all tabs
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('active-pricing-tab');
+    });
+    
+    // Show selected section
+    document.getElementById(tabName + '-pricing').classList.add('active');
+    
+    // Add active class to clicked tab
+    event.target.classList.add('active-pricing-tab');
+}
+
+// Auto start with ads
+document.addEventListener('DOMContentLoaded', function() {
+    showPricing('ads');
+});
+</script>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/918467004047?text=Pricing%20page%20dekhi...%20best%20plan%20suggest%20kro" class="whatsapp-float position-fixed" target="_blank" style="
+    bottom: 25px !important; right: 25px !important; 
+    width: 70px !important; height: 70px !important; 
+    background: #25D366 !important; color: white !important; 
+    border-radius: 50% !important; font-size: 2.2rem !important;
+    box-shadow: 0 15px 35px rgba(37,211,102,0.4) !important; 
+    z-index: 99999 !important;
+    display: flex !important; align-items: center !important; 
+    justify-content: center !important;
+    text-decoration: none !important; transition: all 0.3s ease !important;
+    animation: pulse 2s infinite !important;
+">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<style>
+@keyframes pulse { 
+    0% { transform: scale(1); } 
+    50% { transform: scale(1.08); } 
+    100% { transform: scale(1); } 
+}
+</style>
+
+</body>
+</html>
